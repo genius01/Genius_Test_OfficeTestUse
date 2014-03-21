@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSONKit.h"
+#import "UIImageView+WebCache.h"
 
-@interface ViewController : UIViewController
+#define MOVIE_SEARCH_URL @"http://api.movies.io/movies/search?q=ring"
+
+@interface ViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+{
+    __weak IBOutlet UITableView *m_tableview;
+    
+    NSMutableData *m_server_data;
+    NSURLConnection *m_connect;
+    
+    NSMutableArray *m_url_ary;
+}
+
+- (void)getJasonData;
 
 @end
